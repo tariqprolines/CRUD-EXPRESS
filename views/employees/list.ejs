@@ -1,0 +1,43 @@
+<%- include('../includes/header') %> 
+<div class="container">
+<form method="post" action="/search">
+<div class="row mt-2">
+  <h4 class="mt-4">Search Employee</h4>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" name="search" />
+  </div>
+  <div class="col-sm-2">
+    <button type="submit" class="btn btn-success">Search</button>
+  </div>
+</div> 
+</form> 
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Created By</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i < employees.length; i++) {%>
+      <tr>
+        <th scope="row"><%= i+1  %> </th>
+        <th><img src="<%= employees[i].photo%>" width="100" class="img-fluid img-thumbnail"></th>
+        <td><%= employees[i].name %></td>
+        <td><%= employees[i].email %></td>
+        <td><%= employees[i].salary %></td>
+        <td><%= employees[i].created_by %></td>
+        <td><a href="/edit/<%= employees[i].id %>">Edit</a></td>
+        <td><a href="/delete/<%= employees[i].id %>">Delete</a></td>
+      </tr>
+    <% } %> 
+    </tbody>
+  </table>
+</div>  
+<%- include('../includes/footer') %> 

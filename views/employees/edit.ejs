@@ -1,0 +1,26 @@
+<%- include('../includes/header') %> 
+<div class="container">
+    <h4 class="mt-4">Edit Employee</h4>
+    <form method="POST" action="/update/<%= employee.id %> " enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" value="<%= employee.name %> " class="form-control" id="name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" name="email" value="<%= employee.email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Salary</label>
+            <input type="text" name="salary" value="<%= employee.salary %> " class="form-control" id="salary">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Photo</label>
+            <input type="file" name="photo" class="form-control" id="photo">
+            <input type="hidden" name="hidden_photo" value="<%= employee.photo %> " />
+            <img src = "<%= employee.photo %>" class="img-fluid img-thumbnail" width="250">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+<%- include('../includes/footer') %> 
